@@ -1,6 +1,5 @@
-
-"items":{
-      {
+{
+      "1": {
         "id": 0,
         "task": "mow the lawn",
         "isCompleted": false,
@@ -10,7 +9,7 @@
         "urgency": "low",
         "dependencies": "sunshine, clippers, hat, water, headphones"
       },
-      {
+      "2": {
         "id": 1,
         "task": "grade quizzes, I mean Mastery Watzits",
         "isCompleted": false,
@@ -20,7 +19,7 @@
         "urgency": "high",
         "dependencies": "wifi, tissues, vodka"
       },
-      {
+      "3": {
         "id": 2,
         "task": "take a nap",
         "isCompleted": false,
