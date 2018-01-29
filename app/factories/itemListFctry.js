@@ -1,6 +1,6 @@
 "use strict";
 
-// https://fir-a5a79.firebaseio.com/items.json
+// https://fir-a5a79.firebaseio.com/todos.json
 
 angular.module("TodoApp").factory("ItemListFctry", function($http, $q) {
 
@@ -41,5 +41,11 @@ angular.module("TodoApp").factory("ItemListFctry", function($http, $q) {
     return items;
   }
 
-  return { getTodoItems };
+  function addNewItem(newItem) {
+    newItem.id = items.length;
+    console.log(newItem);
+    items.push(newItem);
+  }
+
+  return { getTodoItems, addNewItem };
 });
