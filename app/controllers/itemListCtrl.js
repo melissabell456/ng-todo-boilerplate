@@ -4,6 +4,13 @@ angular.module("TodoApp").controller("ItemListCtrl", function($scope, ItemListFc
 
   $scope.searchTerm = FilterFctry;
 
-  $scope.items = ItemListFctry.getTodoItems();
+  ItemListFctry.getTodoItems()
+  .then( (todoData) => {
+    $scope.items = [];
+    for (let todo in todoData) {
+      todoData[todo].fbID = todo;
+      $scope.items.push(todoData[todo]);
+    }
+  });
   
 });
