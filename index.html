@@ -7,15 +7,8 @@
 </head>
 <body ng-app="TodoApp">
 
-  <!-- TODO: Add a controller for our todo list -->
   <div>
-    <div class="row">
-      <div class="col-xs-6 col-xs-offset-3">
-        <!-- Let's call a js function from our HTML. wat? -->
-        <button class="col-xs-6 btn btn-success">New Item</button>
-        <button class="col-xs-6 btn btn-info"> All Items</button>
-      </div>
-    </div>
+    <div ng-include=" 'partials/navbar.html' " ng-controller="NavCtrl"></div>
     <div class="row">
       <div class="col-xs-10 col-xs-offset-1 main-container">
         <div ng-view></div>
@@ -34,5 +27,6 @@
   <script src="app/factories/itemListFctry.js"></script>
   <!-- controllers -->
   <script src="app/controllers/itemListCtrl.js"></script>
+  <script src="app/controllers/navCtrl.js"></script>
 </body>
 </html>
