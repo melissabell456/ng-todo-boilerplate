@@ -1,8 +1,8 @@
 "use strict";
 
-angular.module("TodoApp").controller("NavCtrl", function($scope, $rootScope) {
+angular.module("TodoApp").controller("NavCtrl", function($scope, FilterFctry) {
  
-  $rootScope.searchTerm = "";
+  $scope.searchTerm = FilterFctry;
 
   $scope.navItems = [
     // TODO: Hide/Show login/out

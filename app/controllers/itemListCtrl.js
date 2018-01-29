@@ -1,8 +1,8 @@
 "use strict";
 
-angular.module("TodoApp").controller("ItemListCtrl", function($scope, ItemListFctry, $rootScope) {
+angular.module("TodoApp").controller("ItemListCtrl", function($scope, ItemListFctry, FilterFctry) {
 
-  $rootScope.searchTerm = "";
+  $scope.searchTerm = FilterFctry;
 
   $scope.items = ItemListFctry.getTodoItems();
   
