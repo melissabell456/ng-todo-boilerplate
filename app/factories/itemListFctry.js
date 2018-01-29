@@ -1,51 +1,27 @@
 "use strict";
 
-// https://fir-a5a79.firebaseio.com/todos.json
-
-angular.module("TodoApp").factory("ItemListFctry", function($http, $q) {
-
-  let items = [
-    {
-      id: 0,
-      task: "mow the lawn",
-      isCompleted: false,
-      dueDate: "12/5/17",
-      assignedTo: "Greg",
-      location: "Joe's house",
-      urgency: "low",
-      dependencies: "sunshine, clippers, hat, water, headphones"
-    },
-    {
-      id: 1,
-      task: "grade quizzes, I mean Mastery Watzits",
-      isCompleted: false,
-      dueDate: "12/5/17",
-      assignedTo: "Joe",
-      location: "NSS",
-      urgency: "high",
-      dependencies: "wifi, tissues, vodka"
-    },
-    {
-      id: 2,
-      task: "take a nap",
-      isCompleted: false,
-      dueDate: "5/21/18",
-      assignedTo: "Joe",
-      location: "Porch of lakefront cabin",
-      urgency: "medium",
-      dependencies: "hammock, silence"
-    }
-  ];
-
+angular.module("TodoApp").factory("ItemListFctry", function($http, $q, FBUrl) {
+  
   function getTodoItems() {
-    return items;
+    // return $q( (resolve, reject) {
+    //   $http
+    //   .get("FBUrl")
+    // })
   }
+  
 
   function addNewItem(newItem) {
-    newItem.id = items.length;
-    console.log(newItem);
-    items.push(newItem);
+    newItem.id = "";
+    $http.post(`${FBUrl}/todos.json`,
+      JSON.stringify(newItem)
+  )
+  .then( (data) => {
+    console.log("new item posted", data);
+  })
+  .catch( (error) => {
+    console.log(error);
+  });
   }
-
+ 
   return { getTodoItems, addNewItem };
 });
