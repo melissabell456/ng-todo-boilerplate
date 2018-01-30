@@ -5,35 +5,36 @@
     <link rel="stylesheet" type="text/css" href="lib/node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
-</head>
-<body ng-app="TodoApp">
-
-  <div>
-    <div ng-include=" 'partials/navbar.html' " ng-controller="NavCtrl"></div>
-    <div class="row">
-      <div class="col-xs-10 col-xs-offset-1 main-container">
-        <div ng-view></div>
+  </head>
+  <body ng-app="TodoApp">
+    
+    <div>
+      <div ng-include=" 'partials/navbar.html' " ng-controller="NavCtrl"></div>
+      <div class="row">
+        <div class="col-xs-10 col-xs-offset-1 main-container">
+          <div ng-view></div>
+        </div>
       </div>
     </div>
-  </div>
-
-  <script type="text/javascript" src="lib/node_modules/jquery/dist/jquery.min.js"></script>
-  <script type="text/javascript" src="lib/node_modules/bootstrap/dist/js/bootstrap.min.js">
+    
+    <script src="\lib\node_modules\firebase\firebase.js"></script>
+    <script type="text/javascript" src="lib/node_modules/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="lib/node_modules/bootstrap/dist/js/bootstrap.min.js">
   </script>
   <script type="text/javascript" src="lib/node_modules/angular/angular.min.js"></script>
   <script type="text/javascript" src="lib/node_modules/angular-route/angular-route.min.js"></script>
   <!-- app -->
   <script type="text/javascript" src="app/app.js"></script>
   <!-- factories -->
+  <script src="app/factories/authFctry.js"></script>
   <script src="app/factories/itemListFctry.js"></script>
   <script src="app/factories/filterFctry.js"></script>
-  <script src="app/factories/itemAddFctry.js"></script>
-  <script src="app/factories/itemDetailFctry.js"></script>
-  <script src="app/factories/itemDeleteFctry.js"></script>
   <!-- controllers -->
+  <script src="app/controllers/loginCtrl.js"></script>
   <script src="app/controllers/itemListCtrl.js"></script>
   <script src="app/controllers/navCtrl.js"></script>
   <script src="app/controllers/itemDetailCtrl.js"></script>
   <script src="app/controllers/itemNewCtrl.js"></script>
+  <script src="app/controllers/itemEditCtrl.js"></script>
 </body>
 </html>

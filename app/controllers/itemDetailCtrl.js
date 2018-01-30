@@ -1,18 +1,11 @@
 "use strict";
 
-angular.module("TodoApp").controller("ItemDetailCtrl", function($scope, ItemDetailFctry, $routeParams) {
+angular.module("TodoApp").controller("ItemDetailCtrl", function($scope, ItemListFctry, $routeParams) {
 
-  let selectedTodoID = $routeParams.id;
-  console.log("routeparam", selectedTodoID);
-  ItemDetailFctry.getTodoDetails(selectedTodoID)
+  $scope.selectedTodoID = $routeParams.id;
+  ItemListFctry.getTodoDetails($scope.selectedTodoID)
   .then( (todoDetails) => {
     $scope.selectedItem = todoDetails;
   });
-
-  // finding item in todoItems with the matching id as the current $routeParam to only list that specific item
-  // $scope.selectedItem = todoItems.find( (item) => {
-  //   return item.id === +$routeParams.id;
-  // });
-
 
 });

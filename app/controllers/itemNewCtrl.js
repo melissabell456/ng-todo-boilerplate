@@ -1,8 +1,10 @@
 "use strict";
 
-angular.module("TodoApp").controller("ItemNewCtrl", function($scope, $location, ItemAddFctry) {
+angular.module("TodoApp").controller("ItemNewCtrl", function($scope, $location, ItemListFctry) {
 
-  $scope.newTask = {
+  $scope.title = "New";
+
+  $scope.todoItem = {
     task: "",
     isCompleted: false,
     dueDate: "",
@@ -12,10 +14,13 @@ angular.module("TodoApp").controller("ItemNewCtrl", function($scope, $location, 
     dependencies: ""
   };
 
-  $scope.addNewItem = () => {
-    ItemAddFctry.addNewItem($scope.newTask);
-    $location.url("/items/list");
-    // console.log("new task to add", $scope.newTask);
+  // sends result of new object collected with angularJS to firebase and sends user back to list of todos
+  $scope.saveItem = () => {
+    ItemListFctry.addNewItem($scope.todoItem)
+    .then( (data) => {
+      $location.url("/items/list");
+    });
   };
+
 
 });
