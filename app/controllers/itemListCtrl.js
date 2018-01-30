@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module("TodoApp").controller("ItemListCtrl", function($scope, ItemListFctry, FilterFctry) {
+angular.module("TodoApp").controller("ItemListCtrl", function($scope, ItemListFctry, FilterFctry, ItemDeleteFctry) {
 
   
   $scope.searchTerm = FilterFctry;
@@ -14,4 +14,13 @@ angular.module("TodoApp").controller("ItemListCtrl", function($scope, ItemListFc
     }
   });
   
+
+  $scope.deleteTodo = (fbID) => {
+    console.log(fbID);
+    ItemDeleteFctry.deleteTodoItem(fbID)
+    .then( (deletedItem) => {
+      console.log("deleted");
+    });
+  };
+
 });
