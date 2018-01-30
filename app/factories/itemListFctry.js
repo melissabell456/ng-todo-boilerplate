@@ -15,20 +15,6 @@ angular.module("TodoApp").factory("ItemListFctry", function($http, $q, FBUrl) {
     });
   }
 
-  function addNewItem(newItem) {
-    return $q( (resolve, reject) => {
-      $http
-      .post(`${FBUrl}/todos.json`, JSON.stringify(newItem))
-      .then( (addedItem) => {
-        console.log(addedItem);
-        resolve(addedItem);
-      })
-      .catch( (error) => {
-        console.log(error);
-        reject(error);
-      });
-    });
-  }
 
-  return { getTodoItems, addNewItem };
+  return { getTodoItems };
 });

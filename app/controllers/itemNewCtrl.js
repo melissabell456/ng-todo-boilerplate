@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module("TodoApp").controller("ItemNewCtrl", function($scope, $location, ItemListFctry) {
+angular.module("TodoApp").controller("ItemNewCtrl", function($scope, $location, ItemAddFctry) {
 
   $scope.newTask = {
     task: "",
@@ -13,7 +13,7 @@ angular.module("TodoApp").controller("ItemNewCtrl", function($scope, $location, 
   };
 
   $scope.addNewItem = () => {
-    ItemListFctry.addNewItem($scope.newTask);
+    ItemAddFctry.addNewItem($scope.newTask);
     $location.url("/items/list");
     // console.log("new task to add", $scope.newTask);
   };
